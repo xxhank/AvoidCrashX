@@ -1,0 +1,30 @@
+PODS:
+  - JRSwizzle (1.1.0)
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+
+DEPENDENCIES:
+  - JRSwizzle (from `https://github.com/rentzsch/jrswizzle.git`, branch `semver-1.x`)
+  - libextobjc/EXTKeyPathCoding
+  - libextobjc/EXTScope
+
+EXTERNAL SOURCES:
+  JRSwizzle:
+    :branch: semver-1.x
+    :git: https://github.com/rentzsch/jrswizzle.git
+
+CHECKOUT OPTIONS:
+  JRSwizzle:
+    :commit: b4ecc886d94342243f7ec2425ba48eef8c6eb9aa
+    :git: https://github.com/rentzsch/jrswizzle.git
+
+SPEC CHECKSUMS:
+  JRSwizzle: e80ec8c5ac81248a2ba1e685109d0464e957d465
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+
+PODFILE CHECKSUM: e558b2b2467aa32de1716b0515b49fe07e63a6d1
+
+COCOAPODS: 1.3.1

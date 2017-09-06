@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  AvoidCrash
+//  SafeKitExample
 //
-//  Created by wangchao on 2017/9/6.
-//  Copyright © 2017年 ibestv. All rights reserved.
+//  Created by zhangyu on 16/2/16.
+//  Copyright © 2016年 zhangyu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
