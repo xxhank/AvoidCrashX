@@ -29,6 +29,7 @@
 - (void)testAppendFormat {
     id value = nil;
     [self.string appendFormat:value, nil];
+    
 }
 
 - (void)testSetString {

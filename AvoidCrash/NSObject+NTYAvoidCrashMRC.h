@@ -1,5 +1,5 @@
 //
-//  NSObject+AvoidCrash.h
+//  NSObject+NTYAvoidCrashMRC.h
 //  AvoidCrash
 //
 //  Created by wangchao on 2017/9/6.
@@ -7,9 +7,4 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JRSwizzle/JRSwizzle.h>
-
-@interface NSObject (AvoidCrash)
-
-@end
 

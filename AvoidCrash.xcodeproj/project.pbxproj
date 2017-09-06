@@ -15,7 +15,10 @@
 		7F1E13571F5F6E6C00B421D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1E13551F5F6E6C00B421D1 /* LaunchScreen.storyboard */; };
 		7F1E13621F5F6E6C00B421D1 /* AvoidCrashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E13611F5F6E6C00B421D1 /* AvoidCrashTests.m */; };
 		7F1E136D1F5F6E6C00B421D1 /* AvoidCrashUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E136C1F5F6E6C00B421D1 /* AvoidCrashUITests.m */; };
-		7F1E137C1F5F6F6000B421D1 /* NSObject+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E137B1F5F6F6000B421D1 /* NSObject+AvoidCrash.m */; };
+		7F1E137C1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E137B1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.m */; };
+		7F4E4E231F5FDF8E00EAED30 /* AvoidXTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E221F5FDF8E00EAED30 /* AvoidXTest.m */; };
+		7F4E4E261F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E251F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F4E4E291F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E281F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m */; };
 		7FE53B111F5F7336002B150D /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B031F5F7336002B150D /* CYRLayoutManager.m */; };
 		7FE53B121F5F7336002B150D /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B051F5F7336002B150D /* CYRTextStorage.m */; };
 		7FE53B131F5F7336002B150D /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B071F5F7336002B150D /* CYRTextView.m */; };
@@ -72,8 +75,13 @@
 		7F1E13681F5F6E6C00B421D1 /* AvoidCrashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvoidCrashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F1E136C1F5F6E6C00B421D1 /* AvoidCrashUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvoidCrashUITests.m; sourceTree = "<group>"; };
 		7F1E136E1F5F6E6C00B421D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F1E137A1F5F6F6000B421D1 /* NSObject+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AvoidCrash.h"; sourceTree = "<group>"; };
-		7F1E137B1F5F6F6000B421D1 /* NSObject+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AvoidCrash.m"; sourceTree = "<group>"; };
+		7F1E137A1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NTYAvoidCrash.h"; sourceTree = "<group>"; };
+		7F1E137B1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NTYAvoidCrash.m"; sourceTree = "<group>"; };
+		7F4E4E221F5FDF8E00EAED30 /* AvoidXTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvoidXTest.m; sourceTree = "<group>"; };
+		7F4E4E241F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NTYAvoidCrashMRC.h"; sourceTree = "<group>"; };
+		7F4E4E251F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NTYAvoidCrashMRC.m"; sourceTree = "<group>"; };
+		7F4E4E271F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NTYAvoidCrashNotUsed.h"; sourceTree = "<group>"; };
+		7F4E4E281F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NTYAvoidCrashNotUsed.m"; sourceTree = "<group>"; };
 		7FE53B021F5F7336002B150D /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRLayoutManager.h; sourceTree = "<group>"; };
 		7FE53B031F5F7336002B150D /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRLayoutManager.m; sourceTree = "<group>"; };
 		7FE53B041F5F7336002B150D /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRTextStorage.h; sourceTree = "<group>"; };
@@ -175,8 +183,12 @@
 				7F1E13551F5F6E6C00B421D1 /* LaunchScreen.storyboard */,
 				7F1E13581F5F6E6C00B421D1 /* Info.plist */,
 				7F1E13471F5F6E6B00B421D1 /* Supporting Files */,
-				7F1E137A1F5F6F6000B421D1 /* NSObject+AvoidCrash.h */,
-				7F1E137B1F5F6F6000B421D1 /* NSObject+AvoidCrash.m */,
+				7F1E137A1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.h */,
+				7F1E137B1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.m */,
+				7F4E4E241F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.h */,
+				7F4E4E251F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m */,
+				7F4E4E271F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.h */,
+				7F4E4E281F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m */,
 			);
 			path = AvoidCrash;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 		7F1E13601F5F6E6C00B421D1 /* AvoidCrashTests */ = {
 			isa = PBXGroup;
 			children = (
+				7F4E4E221F5FDF8E00EAED30 /* AvoidXTest.m */,
 				7FE53B181F5F7351002B150D /* NSArrayTests.m */,
 				7FE53B191F5F7351002B150D /* NSDictionaryTests.m */,
 				7FE53B1A1F5F7351002B150D /* NSMutableArrayTests.m */,
@@ -546,6 +559,7 @@
 			files = (
 				7FE53B121F5F7336002B150D /* CYRTextStorage.m in Sources */,
 				7FE53B111F5F7336002B150D /* CYRLayoutManager.m in Sources */,
+				7F4E4E291F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m in Sources */,
 				7FE53B131F5F7336002B150D /* CYRTextView.m in Sources */,
 				7FE53B171F5F7336002B150D /* SKViewController.m in Sources */,
 				7FE53B141F5F7336002B150D /* CYRToken.m in Sources */,
@@ -553,7 +567,8 @@
 				7FE53B151F5F7336002B150D /* QEDTextView.m in Sources */,
 				7FE53B161F5F7336002B150D /* SKMainViewController.m in Sources */,
 				7F1E13491F5F6E6B00B421D1 /* main.m in Sources */,
-				7F1E137C1F5F6F6000B421D1 /* NSObject+AvoidCrash.m in Sources */,
+				7F1E137C1F5F6F6000B421D1 /* NSObject+NTYAvoidCrash.m in Sources */,
+				7F4E4E261F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +580,7 @@
 				7FE53B1F1F5F7351002B150D /* NSArrayTests.m in Sources */,
 				7FE53B221F5F7351002B150D /* NSMutableDictionaryTests.m in Sources */,
 				7FE53B211F5F7351002B150D /* NSMutableArrayTests.m in Sources */,
+				7F4E4E231F5FDF8E00EAED30 /* AvoidXTest.m in Sources */,
 				7FE53B201F5F7351002B150D /* NSDictionaryTests.m in Sources */,
 				7FE53B251F5F7351002B150D /* NSStringTests.m in Sources */,
 				7FE53B231F5F7351002B150D /* NSMutableStringTests.m in Sources */,
