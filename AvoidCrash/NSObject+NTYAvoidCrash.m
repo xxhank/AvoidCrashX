@@ -166,42 +166,163 @@ id fakeIMP(id sender,SEL sel,...) {
         /* init方法 */
         clazz = [[NSString alloc] class]; //NSPlaceholderString
         ACSwizzle(clazz,initWithCString: encoding:);
+        ACSwizzle(clazz,initWithString:);
+        ACSwizzle(clazz,initWithUTF8String:);
+        ACSwizzle(clazz,initWithCharacters: length:);
+        ACSwizzle(clazz,initWithFormat: arguments:);
+        ACSwizzle(clazz,initWithFormat:);
+        ACSwizzle(clazz,initWithBytes: length: encoding:);
+        ACSwizzle(clazz,initWithData: encoding:);
 
 
         /* 普通方法 */
         clazz = [[[NSString alloc] init] class];
-        ACSwizzle(clazz,stringByAppendingString:);
-        ACSwizzle(clazz,substringFromIndex:);
-        ACSwizzle(clazz,substringToIndex:);
-        ACSwizzle(clazz,substringWithRange:);
+        ACSwizzle(clazz, characterAtIndex:);
+        ACSwizzle(clazz, stringByAppendingString:);
+        ACSwizzle(clazz, substringFromIndex:);
+        ACSwizzle(clazz, substringToIndex:);
+        ACSwizzle(clazz, substringWithRange:);
+        ACSwizzle(clazz, getCharacters: range:);
+        ACSwizzle(clazz, containsString:);
+        ACSwizzle(clazz, rangeOfString: options: range:);
+        ACSwizzle(clazz, rangeOfCharacterFromSet: options: range:);
+        ACSwizzle(clazz, stringByTrimmingCharactersInSet:);
+        ACSwizzle(clazz, stringByReplacingOccurrencesOfString: withString:);
+        ACSwizzle(clazz, stringByReplacingCharactersInRange: withString:);
+
+        clazz = NSClassFromString(@"__NSCFString");
+        ACSwizzle(clazz, characterAtIndex:);
+        ACSwizzle(clazz, stringByAppendingString:);
+        ACSwizzle(clazz, substringFromIndex:);
+        ACSwizzle(clazz, substringToIndex:);
+        ACSwizzle(clazz, substringWithRange:);
+        ACSwizzle(clazz, getCharacters: range:);
+        ACSwizzle(clazz, containsString:);
+        ACSwizzle(clazz, rangeOfString: options: range:);
+        ACSwizzle(clazz, rangeOfCharacterFromSet: options: range:);
+        ACSwizzle(clazz, stringByTrimmingCharactersInSet:);
+        ACSwizzle(clazz, stringByReplacingOccurrencesOfString: withString:);
+        ACSwizzle(clazz, stringByReplacingCharactersInRange: withString:);
     });
 }
-//
-//+ (NSString*)nty_stringWithUTF8String:(const char*)nullTerminatedCString {
-//    if (NULL != nullTerminatedCString) {
-//        return [self nty_stringWithUTF8String:nullTerminatedCString];
-//    }
-//    ACAssert(NO, @"Invalid args stringWithUTF8String nil cstring");
-//    return nil;
-//}
-//+ (nullable instancetype)nty_stringWithCString:(const char*)cString encoding:(NSStringEncoding)enc {
-//    if (NULL != cString) {
-//        return [self nty_stringWithCString:cString encoding:enc];
-//    }
-//    ACAssert(NO, @"Invalid args stringWithCString nil cstring");
-//    return nil;
-//}
+
+- (NSString*)nty_stringByTrimmingCharactersInSet:(NSCharacterSet*)set {
+    if (!set) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+    return [self nty_stringByTrimmingCharactersInSet:set];
+}
+- (NSString*)nty_stringByReplacingOccurrencesOfString:(NSString*)target withString:(NSString*)replacement {
+    if (!target) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+
+    if (!replacement) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+    return [self nty_stringByReplacingOccurrencesOfString:target withString:replacement];
+}
+- (NSString*)nty_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString*)replacement {
+    if (!replacement) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+    NSRange intersection = NSMakeRange(0, 0);
+    if (range.location + range.length <= self.length) {
+        intersection = range;
+        return [self nty_stringByReplacingCharactersInRange:intersection withString:replacement];
+    } else if (range.location < self.length) {
+        intersection = NSMakeRange(range.location, self.length - range.location);
+        return [self nty_stringByReplacingCharactersInRange:intersection withString:replacement];
+    } else {
+        ACAssert(NO, @"overflow %@ in [0, %zd]", NSStringFromRange(range), self.length);
+        return nil;
+    }
+}
+
+- (instancetype)nty_initWithFormat:(NSString*)format, ... {
+    if (!format) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+    va_list   arguments;
+    va_start(arguments, format);
+    NSString *result = [self initWithFormat:format arguments:arguments];
+    va_end(arguments);
+
+    return result;
+}
+
+- (instancetype)nty_initWithFormat:(NSString*)format arguments:(va_list)argList {
+    if (!format) {
+        ACAssert(NO, @"nil format argument");
+        return nil;
+    }
+
+    if (!argList) {
+        ACAssert(NO, @"nil argList argument");
+        return nil;
+    }
+    return [self nty_initWithFormat:format arguments:argList];
+}
+
+- (instancetype)nty_initWithBytes:(const void*)bytes length:(NSUInteger)len encoding:(NSStringEncoding)encoding {
+    if (!bytes) {
+        ACAssert(NO, @"nil bytes argument");
+        return nil;
+    }
+    return [self nty_initWithBytes:bytes length:len encoding:encoding];
+}
+
+- (instancetype)nty_initWithData:(NSData*)data encoding:(NSStringEncoding)encoding {
+    if (!data) {
+        ACAssert(NO, @"nil data argument");
+        return nil;
+    }
+    return [self nty_initWithData:data encoding:encoding];
+}
+
+- (instancetype)nty_initWithString:(NSString*)aString {
+    if (NULL != aString) {
+        return [self nty_initWithString:aString];
+    }
+    ACAssert(NO, @"nil argument");
+    return nil;
+}
+
+- (instancetype)nty_initWithUTF8String:(const char*)nullTerminatedCString {
+    if (NULL != nullTerminatedCString) {
+        return [self nty_initWithUTF8String:nullTerminatedCString];
+    }
+    ACAssert(NO, @"nil argument");
+    return nil;
+}
+
+- (instancetype)nty_initWithCharacters:(const unichar*)characters length:(NSUInteger)length {
+    if (!characters) {
+        ACAssert(NO, @"nil argument");
+        return nil;
+    }
+
+    return [self nty_initWithCharacters:characters length:length];
+}
+
 - (nullable instancetype)nty_initWithCString:(const char*)nullTerminatedCString encoding:(NSStringEncoding)encoding {
     if (NULL != nullTerminatedCString) {
         return [self nty_initWithCString:nullTerminatedCString encoding:encoding];
     }
-    ACAssert(NO, @"Invalid args initWithCString nil cstring");
+    ACAssert(NO, @"nil argument");
     return nil;
 }
+
 - (NSString*)nty_stringByAppendingString:(NSString*)aString {
     if (aString) {
         return [self nty_stringByAppendingString:aString];
     }
+    ACAssert(NO, @"nil argument");
     return self;
 }
 - (NSString*)nty_substringFromIndex:(NSUInteger)from {
@@ -224,6 +345,72 @@ id fakeIMP(id sender,SEL sel,...) {
     }
     return nil;
 }
+
+- (unichar)nty_characterAtIndex:(NSUInteger)index {
+    if (index < self.length) {
+        return [self nty_characterAtIndex:index];
+    }
+    ACAssert(NO, @"overflow %zd in [0,%zd)", index, self.length);
+    return 0;
+}
+
+- (void)nty_getCharacters:(unichar*)buffer range:(NSRange)range {
+    if (!buffer) {
+        ACAssert(NO, @"nil buffer arguments");
+        return;
+    }
+
+    if (range.location + range.length <= self.length) {
+        [self nty_getCharacters:buffer range:range];
+    } else if (range.location < self.length) {
+        [self nty_getCharacters:buffer range:
+         NSMakeRange(range.location, self.length - range.location)];
+    } else {
+        ACAssert(NO, @"overflow %@ in [0, %zd]", NSStringFromRange(range), self.length);
+    }
+}
+
+- (BOOL)nty_containsString:(NSString*)str {
+    if (!str) {
+        ACAssert(NO, @"nil arguments");
+        return nil;
+    }
+    return [self nty_containsString:str];
+}
+
+- (NSRange)nty_rangeOfString:(NSString*)searchString options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToSearch {
+    if (!searchString) {
+        ACAssert(NO, @"nil arguments");
+        return NSMakeRange(0, 0);
+    }
+
+    if (rangeOfReceiverToSearch.location + rangeOfReceiverToSearch.length <= self.length) {
+        return [self nty_rangeOfString:searchString options:mask range:rangeOfReceiverToSearch];
+    } else if (rangeOfReceiverToSearch.location < self.length) {
+        return [self nty_rangeOfString:searchString options:mask range:
+                NSMakeRange(rangeOfReceiverToSearch.location, self.length - rangeOfReceiverToSearch.location)];
+    } else {
+        ACAssert(NO, @"overflow %@ in [0, %zd]", NSStringFromRange(rangeOfReceiverToSearch), self.length);
+        return NSMakeRange(0, 0);
+    }
+}
+
+- (NSRange)nty_rangeOfCharacterFromSet:(NSCharacterSet*)searchSet options:(NSStringCompareOptions)mask range:(NSRange)rangeOfReceiverToSearch {
+    if (!searchSet) {
+        ACAssert(NO, @"nil arguments");
+        return NSMakeRange(0, 0);
+    }
+
+    if (rangeOfReceiverToSearch.location + rangeOfReceiverToSearch.length <= self.length) {
+        return [self nty_rangeOfCharacterFromSet:searchSet options:mask range:rangeOfReceiverToSearch];
+    } else if (rangeOfReceiverToSearch.location < self.length) {
+        return [self nty_rangeOfCharacterFromSet:searchSet options:mask range:
+                NSMakeRange(rangeOfReceiverToSearch.location, self.length - rangeOfReceiverToSearch.location)];
+    } else {
+        ACAssert(NO, @"overflow %@ in [0, %zd]", NSStringFromRange(rangeOfReceiverToSearch), self.length);
+        return NSMakeRange(0, 0);
+    }
+}
 @end
 
 @implementation NSMutableString (AvoidCrash)
@@ -232,26 +419,41 @@ id fakeIMP(id sender,SEL sel,...) {
     dispatch_once(&onceToken, ^{
         /* init方法 */
         Class clazz = [[NSMutableString alloc] class]; //NSPlaceholderMutableString
-        ACSwizzle(clazz,initWithCString: encoding:);
-        ACSwizzle(clazz,appendString:);
-        ACSwizzle(clazz,appendFormat:);
-        ACSwizzle(clazz,insertString: atIndex:);
-        ACSwizzle(clazz,deleteCharactersInRange:);
-        ACSwizzle(clazz,stringByAppendingString:);
-        ACSwizzle(clazz,substringFromIndex:);
-        ACSwizzle(clazz,substringToIndex:);
-        ACSwizzle(clazz,substringWithRange:);
+        ACSwizzle(clazz, initWithCString: encoding:);
+        ACSwizzle(clazz, appendString:);
+        ACSwizzle(clazz, appendFormat:);
+        ACSwizzle(clazz, insertString: atIndex:);
+        ACSwizzle(clazz, deleteCharactersInRange:);
+        ACSwizzle(clazz, stringByAppendingString:);
+        ACSwizzle(clazz, substringFromIndex:);
+        ACSwizzle(clazz, substringToIndex:);
+        ACSwizzle(clazz, substringWithRange:);
 
         /* 普通方法 */
         clazz = [[[NSMutableString alloc] init] class];
-        ACSwizzle(clazz,appendString:);
-        ACSwizzle(clazz,appendFormat:);
-        ACSwizzle(clazz,insertString: atIndex:);
-        ACSwizzle(clazz,deleteCharactersInRange:);
-        ACSwizzle(clazz,stringByAppendingString:);
-        ACSwizzle(clazz,substringFromIndex:);
-        ACSwizzle(clazz,substringToIndex:);
-        ACSwizzle(clazz,substringWithRange:);
+        ACSwizzle(clazz, appendString:);
+        ACSwizzle(clazz, appendFormat:);
+        ACSwizzle(clazz, insertString: atIndex:);
+        ACSwizzle(clazz, deleteCharactersInRange:);
+        ACSwizzle(clazz, stringByAppendingString:);
+        ACSwizzle(clazz, substringFromIndex:);
+        ACSwizzle(clazz, substringToIndex:);
+        ACSwizzle(clazz, substringWithRange:);
+        ACSwizzle(clazz, setString:);
+
+//        clazz = NSClassFromString(@"__NSCFString");
+//        ACSwizzle(clazz, characterAtIndex:);
+//        ACSwizzle(clazz, stringByAppendingString:);
+//        ACSwizzle(clazz, substringFromIndex:);
+//        ACSwizzle(clazz, substringToIndex:);
+//        ACSwizzle(clazz, substringWithRange:);
+//        ACSwizzle(clazz, getCharacters: range:);
+//        ACSwizzle(clazz, containsString:);
+//        ACSwizzle(clazz, rangeOfString: options: range:);
+//        ACSwizzle(clazz, rangeOfCharacterFromSet: options: range:);
+//        ACSwizzle(clazz, stringByTrimmingCharactersInSet:);
+//        ACSwizzle(clazz, stringByReplacingOccurrencesOfString: withString:);
+//        ACSwizzle(clazz, stringByReplacingCharactersInRange: withString:);
     });
 }
 - (nullable instancetype)nty_initWithCString:(const char*)nullTerminatedCString encoding:(NSStringEncoding)encoding {
@@ -261,7 +463,13 @@ id fakeIMP(id sender,SEL sel,...) {
     ACAssert(NO, @"Invalid args initWithCString nil cstring");
     return nil;
 }
-
+- (void)nty_setString:(NSString*)aString {
+    if (aString) {
+        [self nty_setString:aString];
+    } else {
+        ACAssert(NO, @"Invalid args setString:[%@]", aString);
+    }
+}
 - (void)nty_appendString:(NSString*)aString {
     if (aString) {
         [self nty_appendString:aString];
@@ -672,6 +880,7 @@ id fakeIMP(id sender,SEL sel,...) {
     return nil;
 }
 
+
 @end
 
 #pragma mark - NSDictionary
@@ -972,4 +1181,22 @@ id fakeIMP(id sender,SEL sel,...) {
         ACAssert(NO, @"Invalid args setObject:[%@] forKey:[%@] cost:[%@]", obj, key, @(g));
     }
 }
+@end
+
+@implementation NSNumber (AvoidCrash)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class clazz = NSClassFromString(@"__NSCFNumber");
+        ACSwizzle(clazz, compare:);
+    });
+}
+
+- (NSComparisonResult)nty_compare:(NSNumber*)otherNumber {
+    if (!otherNumber) {
+        return NSOrderedDescending;
+    }
+    return [self nty_compare:otherNumber];
+}
+
 @end

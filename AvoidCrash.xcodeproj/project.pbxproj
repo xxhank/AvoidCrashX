@@ -19,6 +19,7 @@
 		7F4E4E231F5FDF8E00EAED30 /* AvoidXTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E221F5FDF8E00EAED30 /* AvoidXTest.m */; };
 		7F4E4E261F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E251F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F4E4E291F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E4E281F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m */; };
+		7FA7052F1F612820003BA2BC /* NSStringSafeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7052E1F612820003BA2BC /* NSStringSafeTest.m */; };
 		7FE53B111F5F7336002B150D /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B031F5F7336002B150D /* CYRLayoutManager.m */; };
 		7FE53B121F5F7336002B150D /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B051F5F7336002B150D /* CYRTextStorage.m */; };
 		7FE53B131F5F7336002B150D /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE53B071F5F7336002B150D /* CYRTextView.m */; };
@@ -82,6 +83,7 @@
 		7F4E4E251F600B1F00EAED30 /* NSObject+NTYAvoidCrashMRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NTYAvoidCrashMRC.m"; sourceTree = "<group>"; };
 		7F4E4E271F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NTYAvoidCrashNotUsed.h"; sourceTree = "<group>"; };
 		7F4E4E281F600B8600EAED30 /* NSObject+NTYAvoidCrashNotUsed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NTYAvoidCrashNotUsed.m"; sourceTree = "<group>"; };
+		7FA7052E1F612820003BA2BC /* NSStringSafeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringSafeTest.m; sourceTree = "<group>"; };
 		7FE53B021F5F7336002B150D /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRLayoutManager.h; sourceTree = "<group>"; };
 		7FE53B031F5F7336002B150D /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRLayoutManager.m; sourceTree = "<group>"; };
 		7FE53B041F5F7336002B150D /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRTextStorage.h; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		7F1E13601F5F6E6C00B421D1 /* AvoidCrashTests */ = {
 			isa = PBXGroup;
 			children = (
+				7FA7052E1F612820003BA2BC /* NSStringSafeTest.m */,
 				7F4E4E221F5FDF8E00EAED30 /* AvoidXTest.m */,
 				7FE53B181F5F7351002B150D /* NSArrayTests.m */,
 				7FE53B191F5F7351002B150D /* NSDictionaryTests.m */,
@@ -341,18 +344,18 @@
 				TargetAttributes = {
 					7F1E13431F5F6E6B00B421D1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = N24PWNMG2G;
+						DevelopmentTeam = VHGKN5E4A4;
 						ProvisioningStyle = Automatic;
 					};
 					7F1E135C1F5F6E6C00B421D1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = N24PWNMG2G;
+						DevelopmentTeam = VHGKN5E4A4;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7F1E13431F5F6E6B00B421D1;
 					};
 					7F1E13671F5F6E6C00B421D1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = N24PWNMG2G;
+						DevelopmentTeam = VHGKN5E4A4;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7F1E13431F5F6E6B00B421D1;
 					};
@@ -584,6 +587,7 @@
 				7FE53B201F5F7351002B150D /* NSDictionaryTests.m in Sources */,
 				7FE53B251F5F7351002B150D /* NSStringTests.m in Sources */,
 				7FE53B231F5F7351002B150D /* NSMutableStringTests.m in Sources */,
+				7FA7052F1F612820003BA2BC /* NSStringSafeTest.m in Sources */,
 				7F1E13621F5F6E6C00B421D1 /* AvoidCrashTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,7 +732,7 @@
 			baseConfigurationReference = FC88AD29EBBCCE78C2EB0BE2 /* Pods-AvoidCrash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -742,7 +746,7 @@
 			baseConfigurationReference = 3465B08430B402D144E767BD /* Pods-AvoidCrash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -756,7 +760,7 @@
 			baseConfigurationReference = 73DAACF98D3AE0AD5329BF8C /* Pods-AvoidCrashTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrashTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ibestv.AvoidCrashTests;
@@ -770,7 +774,7 @@
 			baseConfigurationReference = 95FAEAD1ED2E914314F89260 /* Pods-AvoidCrashTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrashTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ibestv.AvoidCrashTests;
@@ -783,7 +787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A16400FB481F6DC1B1048C0 /* Pods-AvoidCrashUITests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrashUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ibestv.AvoidCrashUITests;
@@ -796,7 +800,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7049402CA09C56794FD71A64 /* Pods-AvoidCrashUITests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = N24PWNMG2G;
+				DEVELOPMENT_TEAM = VHGKN5E4A4;
 				INFOPLIST_FILE = AvoidCrashUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ibestv.AvoidCrashUITests;

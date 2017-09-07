@@ -218,7 +218,8 @@
     NSMutableAttributedString*attr = [[NSMutableAttributedString alloc] initWithString:@"hello" attributes:nil];
     [attr attributedSubstringFromRange:NSMakeRange(1000, 1)];
 
-    [attr addAttribute:@"a" value:nil range:NSMakeRange(100, 0)];
+    id nilValue = nil;
+    [attr addAttribute:@"a" value:nilValue range:NSMakeRange(100, 0)];
     [attr addAttributes:@{@"c":@"d"} range:NSMakeRange(1000, 0)];
     [attr removeAttribute:@"a" range:NSMakeRange(1000, 0)];
     [attr setAttributes:nil range:NSMakeRange(100, 0)];
